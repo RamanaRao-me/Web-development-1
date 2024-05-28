@@ -1,0 +1,113 @@
+HTML CODE:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="Enter city name">
+            <button id="search-btn">Search</button>
+        </div>
+        <div class="weather-info" id="weather-info">
+            <h2 id="city-name"></h2>
+            <p id="temperature"></p>
+            <p id="description"></p>
+            <p id="humidity"></p>
+            <p id="wind-speed"></p>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+CSS CODE:
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-box {
+    margin-bottom: 20px;
+}
+
+#city-input {
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#search-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00796b;
+    color: white;
+    cursor: pointer;
+}
+
+#search-btn:hover {
+    background-color: #004d40;
+}
+
+.weather-info {
+    display: none;
+    text-align: left;
+}
+
+.weather-info p {
+    margin: 5px 0;
+}
+
+JAVA SCRIPT CODE:
+
+document.getElementById('search-btn').addEventListener('click', function() {
+    const city = document.getElementById('city-input').value;
+    if (city) {
+        fetchWeatherData(city);
+    }
+});
+
+function fetchWeatherData(city) {
+    const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => displayWeatherData(data))
+        .catch(error => console.error('Error fetching weather data:', error));
+}
+
+function displayWeatherData(data) {
+    if (data.cod === 200) {
+        document.getElementById('city-name').textContent = data.name;
+        document.getElementById('temperature').textContent = `Temperature: ${data.main.temp}°C`;
+        document.getElementById('description').textContent = `Description: ${data.weather[0].description}`;
+        document.getElementById('humidity').textContent = `Humidity: ${data.main.humidity}%`;
+        document.getElementById('wind-speed').textContent = `Wind Speed: ${data.wind.speed} m/s`;
+
+        document.getElementById('weather-info').style.display = 'block';
+    } else {
+        alert('City not found. Please try again.');
+    }
+}
