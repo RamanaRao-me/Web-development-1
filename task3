@@ -1,0 +1,187 @@
+HTML CODE:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">TV Shows</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Latest</a></li>
+                    <li><a href="#">My List</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Featured Content</h1>
+            <p>Watch the latest movies and TV shows.</p>
+            <button class="btn">Watch Now</button>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2>Popular on Netflix</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/51-NlJKCeyL._AC_SY679_.jpg" alt="The Pursuit of Happyness">
+                    <p>The Pursuit of Happyness</p>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/81r-NHLdjDL._SL1500_.jpg" alt="Rocky">
+                    <p>Rocky</p>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/81V+AcV-WpL._SL1500_.jpg" alt="The Shawshank Redemption">
+                    <p>The Shawshank Redemption</p>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/71niXI3lxlL._SL1500_.jpg" alt="Forrest Gump">
+                    <p>Forrest Gump</p>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/71c05lTE03L._AC_SY679_.jpg" alt="Good Will Hunting">
+                    <p>Good Will Hunting</p>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/81grtEZBlhL._AC_SY879_.jpg" alt="A Beautiful Mind">
+                    <p>A Beautiful Mind</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Netflix Clone. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+CSS CODE:
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #141414;
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+}
+
+.header .logo img {
+    height: 40px;
+}
+
+.header .main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header .main-nav ul li {
+    margin-right: 20px;
+}
+
+.header .main-nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.hero {
+    background-image: url('https://via.placeholder.com/1200x400');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    background-color: #e50914;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.hero .btn:hover {
+    background-color: #b20710;
+}
+
+.content {
+    padding: 50px 0;
+}
+
+.content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.card {
+    background-color: #222;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.card p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.footer {
+    background-color: #141414;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #333;
+}
